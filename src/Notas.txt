@@ -1,0 +1,14 @@
+##Notas del software:
+1. Obtencion de clases: Sustantivos
+Cuenta Bancaria (Cuenta Ahorro, Cuenta corriente),
+Prestamo (2), Interes (3), Transaccion (Movimiento), Deposito, Retiro, Transferencia,
+Cliente, Empleado, Tipo Prestamo, Solicitud de Prestamo,
+Pago, Cronograma,
+2. Agrupar por tipo/Concepto
+
+Cuenta Bancaria (Cuenta Ahorro, Cuenta corriente),
+Prestamo (2),  Tipo Prestamo, Solicitud de Prestamo, Cronograma
+Interes (3),
+Transaccion (Movimiento), Deposito, Retiro, Transferencia, Pago
+Cliente,
+Empleado
