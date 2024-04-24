@@ -1,16 +1,30 @@
 package com.brixton.bank.model;
 
+import com.brixton.bank.parameters.GlobalParameter;
+import com.brixton.bank.parameters.LoanParameters;
+import com.brixton.bank.parameters.Parameters;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import lombok.extern.slf4j.Slf4j;
 
 @Getter
 @Setter
 @ToString
 public class SavingAccount extends Account{
-    private  double interes;
 
-    public double calculoInteres (double interes, double monto){
-        return 0.0;
+    public double calculateInterest(){
+        return proyectInterest(1);
     }
+
+    public double proyectInterest(int year){
+        double annualInterestRate = 0;
+        switch (getClient().getClientType()) {
+            case VIP -> annualInterestRate = (Double) LoanParameters.loanParameter.get(Parameters.INTEREST_RATE_VIP).getValue();
+            case GOLD -> annualInterestRate = (Double) LoanParameters.loanParameter.get(Parameters.INTEREST_RATE_GOLD).getValue();
+            case SIGNATURE -> annualInterestRate = (Double) LoanParameters.loanParameter.get(Parameters.INTEREST_RATE_SIGNATURE).getValue();
+        }
+        return getBalance() * annualInterestRate * year;
+    }
+
 }
