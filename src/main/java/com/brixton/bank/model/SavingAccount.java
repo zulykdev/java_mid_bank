@@ -10,7 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Getter
 @Setter
-@ToString
+@ToString(callSuper = true)
 public class SavingAccount extends Account{
 
     public double calculateInterest(){
@@ -20,9 +20,10 @@ public class SavingAccount extends Account{
     public double proyectInterest(int year){
         double annualInterestRate = 0;
         switch (getClient().getClientType()) {
-            case VIP -> annualInterestRate = (Double) LoanParameters.loanParameter.get(Parameters.INTEREST_RATE_VIP).getValue();
-            case GOLD -> annualInterestRate = (Double) LoanParameters.loanParameter.get(Parameters.INTEREST_RATE_GOLD).getValue();
-            case SIGNATURE -> annualInterestRate = (Double) LoanParameters.loanParameter.get(Parameters.INTEREST_RATE_SIGNATURE).getValue();
+            case VIP -> annualInterestRate = (Double) LoanParameters.loanRates.get(Parameters.INTEREST_RATE_VIP).getValue();
+            case GOLD -> annualInterestRate = (Double) LoanParameters.loanRates.get(Parameters.INTEREST_RATE_GOLD).getValue();
+            case SIGNATURE -> annualInterestRate = (Double) LoanParameters.loanRates.get(Parameters.INTEREST_RATE_SIGNATURE).getValue();
+            default -> annualInterestRate = (Double) LoanParameters.loanRates.get(Parameters.INTEREST_RATE_DEFAULT).getValue();
         }
         return getBalance() * annualInterestRate * year;
     }

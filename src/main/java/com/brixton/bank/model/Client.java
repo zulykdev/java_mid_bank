@@ -6,6 +6,9 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Getter
 @Setter
@@ -20,6 +23,8 @@ public class Client {
     private String email;
     private String password;
     private ClientType clientType;
+    private Map<String, SavingAccount> savingAccounts;
+    private Map<String, Loan> loans;
 
     public Client(){
 
@@ -32,5 +37,8 @@ public class Client {
         setBirthday(birthday);
         setPhoneNumber(phoneNumber);
         setEmail(email);
+        setPassword(password);
+        setSavingAccounts(new HashMap<>());
+        setLoans(new HashMap<>());
     }
 }

@@ -10,18 +10,4 @@ import lombok.ToString;
 public class Employee {
     private String idEmployee;
     private String name;
-
-
-    public void aprobarPrestamo(){
-
-    }
-
-    public void rechazarPrestamo(){
-
-    }
-
-    public void gestionarCuentaCliente(){
-
-    }
-
 }

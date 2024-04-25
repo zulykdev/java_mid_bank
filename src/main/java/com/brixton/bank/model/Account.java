@@ -7,6 +7,7 @@ import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 @Setter
@@ -15,10 +16,13 @@ import java.time.LocalDateTime;
 public class Account {
     private String id;
     private String accountNumber;
+    @ToString.Exclude
     private Client client;
     private Double balance;
     private LocalDateTime openingDate;
+    private Double interestRate;
     private LocalDateTime endingDate;
+    private List<Movement> movements;
 
     private void deposit(double amount) {
         if (amount > 0) {
